@@ -4,9 +4,9 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 import os, time, getpass
 
-def bookRoom(username, password, startTime, endTime, date, bookingText):
+def bookRoom(username, password, startTime, endTime, date, bookingText, roomId):
     chromeOptions = webdriver.ChromeOptions()
-    chromeOptions.add_argument('headless')
+    #chromeOptions.add_argument('headless')
 
     chromedriverPath = Service(os.path.abspath(os.getcwd()) + "/chromedriver")
     browser = webdriver.Chrome(service=chromedriverPath, options=chromeOptions)
@@ -25,7 +25,7 @@ def bookRoom(username, password, startTime, endTime, date, bookingText):
     element.send_keys(password)
     element.send_keys(Keys.RETURN)
 
-    specificRoomUrl = "https://tp.uio.no/ntnu/rombestilling/?start=" + startTime + "&preset_date=" + date + "&roomid=360D1-150"
+    specificRoomUrl = "https://tp.uio.no/ntnu/rombestilling/?start=" + startTime + "&preset_date=" + date + "&roomid=" + roomId
     browser.get(specificRoomUrl)
 
     element = browser.switch_to.active_element
