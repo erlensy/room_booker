@@ -4,9 +4,11 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 import os, time, getpass
 
-def bookRoom(username, password, startTime, endTime, date, bookingText, roomId):
+def bookRoom(username, password, startTime, endTime, date, bookingText, roomId, headless = True):
     chromeOptions = webdriver.ChromeOptions()
-    #chromeOptions.add_argument('headless')
+
+    if headless:
+        chromeOptions.add_argument('headless')
 
     chromedriverPath = Service(os.path.abspath(os.getcwd()) + "/chromedriver")
     browser = webdriver.Chrome(service=chromedriverPath, options=chromeOptions)

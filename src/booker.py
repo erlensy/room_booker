@@ -48,7 +48,7 @@ def bookBookings(startDate):
             print(f"Booked room: {roomId} on {currDateString}, from {startTime} to {endTime}")
 
         except:
-            print(f"Couldt not book room: {roomId} on {currDateString}, from {startTime} to {endTime}")
+            print(f"Could not book room: {roomId} on {currDateString}, from {startTime} to {endTime}")
 
 if __name__ == "__main__":
     disDate = date.today()
