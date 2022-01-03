@@ -8,5 +8,5 @@ pip install -r requirements.txt
 2. update bookings in src/booker.py
 
 ## book rooms:
-python booker.py
+python src/booker.py
 
