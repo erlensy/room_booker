@@ -5,6 +5,25 @@ from datetime import date
 def dateToString(date):
     return date.strftime("%Y-%m-%d")
 
+def bookBookings(startDate):
+    currDate = startDate
+    for booking in bookings:
+        bookingDate, roomId, startTime, endTime = booking
+
+        while currDate.weekday() != bookingDate:
+            currDate += timedelta(1)
+
+        currDateString = dateToString(currDate)
+
+        try:
+            bookRoom(bookingData["username"], bookingData["password"], 
+                    startTime, endTime, currDateString,
+                    bookingData["bookingText"], roomIds[roomId])
+            print(f"Booked room: {roomId} on {currDateString}, from {startTime} to {endTime}")
+
+        except:
+            print(f"Could not book room: {roomId} on {currDateString}, from {startTime} to {endTime}")
+
 bookingData = {
     "username" : "",
     "password" : "",
@@ -30,25 +49,6 @@ bookings = [[0, "R41", "08:00", "12:00"],
             [2, "E404", "12:00", "16:00"],
             [3, "R41", "12:00", "16:00"],
             [4, "R41", "10:00", "14:00"]]
-
-def bookBookings(startDate):
-    currDate = startDate
-    for booking in bookings:
-        bookingDate, roomId, startTime, endTime = booking
-
-        while currDate.weekday() != bookingDate:
-            currDate += timedelta(1)
-
-        currDateString = dateToString(currDate)
-
-        try:
-            bookRoom(bookingData["username"], bookingData["password"], 
-                    startTime, endTime, currDateString,
-                    bookingData["bookingText"], roomIds[roomId])
-            print(f"Booked room: {roomId} on {currDateString}, from {startTime} to {endTime}")
-
-        except:
-            print(f"Could not book room: {roomId} on {currDateString}, from {startTime} to {endTime}")
 
 if __name__ == "__main__":
     disDate = date.today()
