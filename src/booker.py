@@ -18,7 +18,7 @@ def bookBookings(startDate):
         try:
             bookRoom(bookingData["username"], bookingData["password"], 
                     startTime, endTime, currDateString,
-                    bookingData["bookingText"], roomIds[roomId], False)
+                    bookingData["bookingText"], roomIds[roomId], headless = True)
             print(f"Booked room: {roomId} on {currDateString}, from {startTime} to {endTime}")
 
         except:

@@ -4,14 +4,14 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 import os, time, getpass
 
-def bookRoom(username, password, startTime, endTime, date, bookingText, roomId, headless = True):
+def bookRoom(username, password, startTime, endTime, date, bookingText, roomId, headless = False):
     chromeOptions = webdriver.ChromeOptions()
 
-    if headless:
-        chromeOptions.add_argument('headless')
+    if headless == True:
+        chromeOptions.headless = True
 
     chromedriverPath = Service(os.path.abspath(os.getcwd()) + "/chromedriver")
-    browser = webdriver.Chrome(service=chromedriverPath, options=chromeOptions)
+    browser = webdriver.Chrome(service=chromedriverPath, chrome_options=chromeOptions)
 
     startUrl = "https://tp.uio.no/ntnu/rombestilling/"
     browser.get(startUrl)
