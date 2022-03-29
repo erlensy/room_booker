@@ -18,7 +18,7 @@ def bookBookings(startDate):
         try:
             bookRoom(bookingData["username"], bookingData["password"], 
                     startTime, endTime, currDateString,
-                    bookingData["bookingText"], roomIds[roomId])
+                    bookingData["bookingText"], roomIds[roomId], False)
             print(f"Booked room: {roomId} on {currDateString}, from {startTime} to {endTime}")
 
         except:
@@ -27,7 +27,7 @@ def bookBookings(startDate):
 bookingData = {
     "username" : "",
     "password" : "",
-    "bookingText" : "kollokvie"
+    "bookingText" : ""
 }
 
 roomIds = {
@@ -44,11 +44,7 @@ roomIds = {
 
 # monday = 0, tuesday = 1, wednesday = 2, thursday = 3
 # friday = 4, saturday = 5, sunday = 6
-bookings = [[0, "R41", "08:00", "12:00"],
-            [1, "R41", "08:00", "12:00"],
-            [2, "E404", "12:00", "16:00"],
-            [3, "R41", "12:00", "16:00"],
-            [4, "R41", "10:00", "14:00"]]
+bookings = [[1, "E404", "20:00", "22:00"]]
 
 if __name__ == "__main__":
     disDate = date.today()

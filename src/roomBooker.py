@@ -18,6 +18,9 @@ def bookRoom(username, password, startTime, endTime, date, bookingText, roomId, 
 
     element = browser.switch_to.active_element
     element.send_keys("NTNU")
+    for _ in range(2):
+        element.send_keys(Keys.RETURN)
+        element = browser.switch_to.active_element
     element.send_keys(Keys.RETURN)
 
     element = browser.find_element(By.NAME, "feidename")
@@ -43,9 +46,9 @@ def bookRoom(username, password, startTime, endTime, date, bookingText, roomId, 
     element.click()
 
     element = browser.find_element(By.ID, "rb-bestill")
-    element.click()
+    element = browser.switch_to.active_element
+    element.send_keys(Keys.RETURN)
 
     element = browser.switch_to.active_element
     element.send_keys(bookingText)
     element.send_keys(Keys.RETURN)
-
